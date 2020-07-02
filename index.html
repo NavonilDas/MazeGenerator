@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze Generator | BY Navonil Das</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-
+    <script src="./sketch.js"></script>
+    <script src="./Kruskal.js"></script>
+    <script src="./Backtracker.js"></script>
+    <script src="./Prims.js"></script>
+    <script src="./Hunt_and_kill.js"></script>
+    <script src="./GrowingTree.js"></script>
+    <script src="./GrowingBinaryTree.js"></script>
 </head>
 
 <body>
@@ -28,14 +34,21 @@
         <label for="NCols">No of Columns</label>
         <input type="number" name="NCols" id="NCols" min="2" value="16" required>
         <br>
+
+        <label for="framerate">Frame Rate</label>
+        <input type="number" name="framerate" id="framerate" min="1" value="5" required>
+        <br>
+
         <label for="algo">Algorithm</label>
         <select name="algo" id="algo-select" required>
-            <option value="0">Recursive backtracker</option>
-            <option value="0">Randomized Kruskal's algorithm</option>
-            <option value="0">Randomized Prim's algorithm</option>
+            <option value="0">Hunt and Kill</option>
+            <option value="1">Recursive backtracker</option>
+            <option value="2">Randomized Kruskal's algorithm</option>
+            <option value="3">Randomized Prim's algorithm</option>
+            <option value="4">Growing Tree</option>
+            <option value="5">Growing Binary Tree</option>
         </select>
         <br>
-        <input type="button" value="step" onclick="stepper = true;">
         <input type="submit" value="Done">
     </form>
 
@@ -58,7 +71,11 @@
             cols = parseInt(document.getElementById('NCols').value, 10);
             if (isNaN(cols))
                 cols = 10;
-            Start();
+            let x = document.getElementById('algo-select').selectedIndex;
+            let rate = parseInt(document.getElementById('framerate').value, 10);
+            if (isNaN(rate))
+                rate = 5;
+            Start(x, rate);
         }
     </script>
 </body>
