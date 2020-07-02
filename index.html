@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Generator | BY Navonil Das</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+
+</head>
+
+<body>
+    <style>
+        #myWorkspace {
+            margin-top: 2em;
+            max-width: 100vw;
+            max-height: 100vh;
+            overflow: auto;
+        }
+    </style>
+    <form onsubmit="Submit(event)">
+        <label for="cellSize">Cell Size</label>
+        <input type="number" placeholder="Cell Size" name="cellSize" id="cellSize" min="5" value="20" required>
+        <br>
+        <label for="NRows">No of Rows</label>
+        <input type="number" name="NRows" id="NRows" min="2" value="16" required>
+        <br>
+        <label for="NCols">No of Columns</label>
+        <input type="number" name="NCols" id="NCols" min="2" value="16" required>
+        <br>
+        <label for="algo">Algorithm</label>
+        <select name="algo" id="algo-select" required>
+            <option value="0">Recursive backtracker</option>
+            <option value="0">Randomized Kruskal's algorithm</option>
+            <option value="0">Randomized Prim's algorithm</option>
+        </select>
+        <br>
+        <input type="button" value="step" onclick="stepper = true;">
+        <input type="submit" value="Done">
+    </form>
+
+
+    <div id="myWorkspace">
+    </div>
+
+    <script>
+        var cellSize = 40;
+        var rows = 10;
+        var cols = 10;
+        function Submit(event) {
+            event.preventDefault();
+            cellSize = parseInt(document.getElementById('cellSize').value, 10);
+            if (isNaN(cellSize))
+                cellSize = 40;
+            rows = parseInt(document.getElementById('NRows').value, 10);
+            if (isNaN(rows))
+                rows = 10;
+            cols = parseInt(document.getElementById('NCols').value, 10);
+            if (isNaN(cols))
+                cols = 10;
+            Start();
+        }
+    </script>
+</body>
+
+</html>
