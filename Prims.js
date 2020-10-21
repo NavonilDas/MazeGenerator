@@ -70,6 +70,10 @@ function Prims() {
         return neigh;//[Math.floor(neigh.length * Math.random())];
     }
     this.setup = function () {
+        this.cells = [];
+        this.frontier = [];
+        this.current = null;
+
         cellSize /= 2;
         rows = 2 * rows;
         cols = 2 * cols;

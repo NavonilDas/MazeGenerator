@@ -137,13 +137,12 @@ function HuntAndKill() {
         this.current = this.cells[i][j];
     }
     this.hunt = () => {
-        for (let i = 0; i < rows; ++i) {
-            for (let j = 0; j < cols; ++j) {
-                if (!this.cells[i][j].visited) {
-                    console.log(this.cells[i][j]);
-                    const ne = this.getVisitedNeigbour(this.cells[i][j]);
+        for (let i = 0; i < cols; ++i) {
+            for (let j = 0; j < rows; ++j) {
+                if (!this.cells[j][i].visited) {
+                    const ne = this.getVisitedNeigbour(this.cells[j][i]);
                     if (ne.length > 0) return [
-                        this.cells[i][j],
+                        this.cells[j][i],
                         ne[floor(ne.length * random())]
                     ];
                 }

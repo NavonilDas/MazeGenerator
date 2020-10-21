@@ -76,6 +76,11 @@ function Kruskal() {
         }
     }
     this.setup = () => {
+        // Reset Values
+        this.walls = [];
+        this.cells = [];
+        this.permanentWallls = [];
+
         for (let i = 0; i < rows; i++) {
             let tmp = [];
             for (let j = 0; j < cols; j++) {
@@ -106,6 +111,7 @@ function Kruskal() {
         for (const wall of this.walls) {
             wall.show();
         }
+        stepper = true;
     }
     this.loop = () => {
         if (!stepper) return;

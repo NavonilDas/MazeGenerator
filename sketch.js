@@ -4,7 +4,7 @@ var width = 0;
 var height = 0;
 var algo;
 
-function Start(algotype,rate = 5) {
+function Start(algotype, rate = 5) {
     const algomap = [
         "HuntAndKill",
         "Backtracker",
@@ -13,12 +13,14 @@ function Start(algotype,rate = 5) {
         "GrowingTree",
         "GrowingBinaryTree"
     ];
+    if (algo)
+        algo = null;
     noCanvas();
     width = cellSize * cols;
     height = cellSize * rows;
     let cnv = createCanvas(width + 20, height + 20);
     cnv.parent('myWorkspace');
-    if(rate){
+    if (rate) {
         frameRate(rate);
     }
     strokeWeight(4);
